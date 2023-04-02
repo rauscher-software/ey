@@ -66,13 +66,13 @@ def show_page(page):
     else:
         print(f"Showing results {page*5 + 1} - {page*5 + len(split_res[page])} (last entry)")
 
-    print("Enter [1-5] to open link, [n/l] for next/last results, or [q] to quit")
+    print("Enter [1-5] to open link, [n/p] for next/previous results, or [q] to quit")
 
     while True:
         key = getkey()
         if key.isdigit() and int(key) > 0 and int(key) < 6:
             break
-        elif key in ('n', 'l', 'q'):
+        elif key in ('n', 'p', 'q'):
             break
         else:
             continue
@@ -89,7 +89,7 @@ def show_page(page):
         if pagination > len(split_res)-1:
             pagination = len(split_res)-1
         show_page(pagination)
-    elif key == 'l':
+    elif key == 'p':
         pagination -= 1
         if pagination < 0:
             pagination = 0
