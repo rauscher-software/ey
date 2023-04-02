@@ -7,7 +7,10 @@ from termcolor import cprint
 from getkey import getkey
 import json
 
-with open('browser.json', 'r') as f:
+dir_path = os.path.dirname(os.path.realpath(__file__))
+config_path = os.path.join(dir_path, 'browser.json')
+
+with open(config_path, 'r') as f:
     data = json.load(f)
     browser_cmd = data["browser_command"]
     u_agent = data["user_agent"]
